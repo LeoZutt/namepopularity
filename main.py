@@ -31,7 +31,7 @@ if st.button('GO'):
         # Connects to the website for each name
         url = 'https://www.popular-babynames.com/name/' + name
         st.write(url)
-        response = requests.get(url, headers=headers)
+        response = requests.get(url, headers=headers, timeout=5)
 
         # Convert the html
         soup = BeautifulSoup(response.content, "html.parser")
