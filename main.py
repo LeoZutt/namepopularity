@@ -30,6 +30,7 @@ if st.button('GO'):
         name = row[0]
         # Connects to the website for each name
         url = 'https://www.popular-babynames.com/name/' + name
+        st.write(url)
         response = requests.get(url, headers=headers)
 
         # Convert the html
