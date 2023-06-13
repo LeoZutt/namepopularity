@@ -8,6 +8,8 @@ import pandas as pd
 
 st.title('Name Popularity Check')
 
+headers = {'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'}
+
 uploaded_file = st.file_uploader("Upload your name list:")
 
 if st.button('GO'):
@@ -28,7 +30,7 @@ if st.button('GO'):
         name = row[0]
         # Connects to the website for each name
         url = 'https://www.popular-babynames.com/name/' + name
-        response = requests.get(url)
+        response = requests.get(url, headers=headers)
 
         # Convert the html
         soup = BeautifulSoup(response.content, "html.parser")
